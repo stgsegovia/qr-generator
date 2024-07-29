@@ -4,10 +4,11 @@ Give the positional pattern custom radii. You can either set one radius for all 
 specify a radius for each corner of each eye.
 
 Simple example:
+
 ```jsx
 <QRCode
-	value="https://github.com/gcoro/react-qrcode-logo"
-	eyeRadius={5} // 5 pixel radius for all corners of all positional eyes
+  value="https://github.com/gcoro/react-qrcode-logo"
+  eyeRadius={5} // 5 pixel radius for all corners of all positional eyes
 />
 ```
 
