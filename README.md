@@ -1,12 +1,6 @@
-# react-qrcode-logo
+# qr-generator-criqlets
 
 Typescript React component to generate a customizable QR Code.
-
-<div style="display: flex; flex-direction: row;">
- <img src="res/qrcode-react.png" height="256" width="256">
- <img src="res/qrcode-mikuv3.png" height="256" width="256">
- <img src="res/qrcode-ts-fluid.png" height="256" width="256">
-</div>
 
 ## Installation
 
@@ -21,7 +15,7 @@ npm install --save qr-generator-criqlets
 import { QRCode } from "qr-generator-criqlets";
 
 // usage
-<QRCode value="https://github.com/stgsegovia/qr-generator" />;
+<QRCode value="https://github.com/" />;
 ```
 
 ## Compatibility

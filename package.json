@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gcoro/react-qrcode-logo-criqlets.git"
+    "url": "git+https://github.com/stgsegovia/qr-generator.git"
   },
   "keywords": [
     "react",
@@ -24,9 +24,9 @@
   "author": "Santiago Segovia",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gcoro/react-qrcode-logo-criqlets/issues"
+    "url": "https://github.com/stgsegovia/qr-generator/issues"
   },
-  "homepage": "https://github.com/gcoro/react-qrcode-logo-criqlets#readme",
+  "homepage": "https://github.com/stgsegovia/qr-generator#readme",
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
