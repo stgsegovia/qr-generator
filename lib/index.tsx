@@ -87,7 +87,7 @@ export class QRCode extends React.Component<IProps, {}> {
 
       const url = this.canvasRef.current.toDataURL(mimeType, 1.0);
       const link = document.createElement("a");
-      link.download = fileName ?? "qr-generator-criqlets";
+      link.download = fileName ?? "qrcode-stg";
       link.href = url;
       link.click();
     }
@@ -774,7 +774,7 @@ export class QRCode extends React.Component<IProps, {}> {
 
     return (
       <canvas
-        id={this.props.id ?? "qr-generator-criqlets"}
+        id={this.props.id ?? "qrcode-stg"}
         height={qrSize}
         width={qrSize}
         style={{

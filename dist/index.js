@@ -75,9 +75,7 @@ var QRCode = /** @class */ (function (_super) {
       var url = this.canvasRef.current.toDataURL(mimeType, 1.0);
       var link = document.createElement("a");
       link.download =
-        fileName !== null && fileName !== void 0
-          ? fileName
-          : "qr-generator-criqlets";
+        fileName !== null && fileName !== void 0 ? fileName : "qrcode-stg";
       link.href = url;
       link.click();
     }
@@ -713,10 +711,7 @@ var QRCode = /** @class */ (function (_super) {
     var _a;
     var qrSize = +this.props.size + 2 * +this.props.quietZone;
     return React.createElement("canvas", {
-      id:
-        (_a = this.props.id) !== null && _a !== void 0
-          ? _a
-          : "qr-generator-criqlets",
+      id: (_a = this.props.id) !== null && _a !== void 0 ? _a : "qrcode-stg",
       height: qrSize,
       width: qrSize,
       style: __assign(

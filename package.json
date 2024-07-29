@@ -1,5 +1,5 @@
 {
-  "name": "react-qrcode-logo-criqlets",
+  "name": "qrcode-stg",
   "version": "3.0.0",
   "description": "React component to generate a QR Code customizable with logo and more properties",
   "main": "dist/index.js",
@@ -41,5 +41,8 @@
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }
