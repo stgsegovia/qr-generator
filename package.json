@@ -1,5 +1,5 @@
 {
-  "name": "qrcode-stg",
+  "name": "qrcodestg",
   "version": "1.0.0",
   "description": "React component to generate a QR Code customizable with logo and more properties",
   "main": "dist/index.js",
