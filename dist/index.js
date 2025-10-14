@@ -324,7 +324,7 @@ var QRCode = /** @class */ (function (_super) {
     ];
     ctx.strokeStyle = fgColor;
     // PATTERN STYLES
-    // HEARTS STYLES
+    // HEARTS - Estilo
     if (qrStyle === "hearts") {
       ctx.fillStyle = fgColor;
       for (var row = 0; row < length; row++) {
@@ -335,25 +335,25 @@ var QRCode = /** @class */ (function (_super) {
           ) {
             var centerX = Math.round(col * cellSize) + cellSize / 2 + offset;
             var centerY = Math.round(row * cellSize) + cellSize / 2 + offset;
-            var size = cellSize / 2;
+            var radius = cellSize / 4;
 
             ctx.beginPath();
-            ctx.moveTo(centerX, centerY + size / 4);
+            ctx.moveTo(centerX, centerY + radius);
             ctx.bezierCurveTo(
-              centerX + size / 1.5, // Control point x1 (ajustado para redondear)
-              centerY - size / 2, // Control point y1 (ajustado para redondear)
-              centerX + size, // Control point x2 (ajustado para redondear)
-              centerY + size / 4, // Control point y2
-              centerX, // End point x
-              centerY + size // End point y
+              centerX + radius,
+              centerY + radius / 1.5,
+              centerX + radius * 2,
+              centerY - radius / 3,
+              centerX,
+              centerY - radius * 2
             );
             ctx.bezierCurveTo(
-              centerX - size, // Control point x1 (ajustado para redondear)
-              centerY + size / 4, // Control point y1
-              centerX - size / 1.5, // Control point x2 (ajustado para redondear)
-              centerY - size / 2, // Control point y2 (ajustado para redondear)
-              centerX, // End point x
-              centerY + size / 4 // End point y
+              centerX - radius * 2,
+              centerY - radius / 3,
+              centerX - radius,
+              centerY + radius / 1.5,
+              centerX,
+              centerY + radius
             );
             ctx.closePath();
             ctx.fill();
@@ -376,6 +376,7 @@ var QRCode = /** @class */ (function (_super) {
             var centerX = Math.round(col * cellSize) + cellSize / 2 + offset;
             var centerY = Math.round(row * cellSize) + cellSize / 2 + offset;
             var angle = Math.PI / 5; // Ángulo entre los puntos de la estrella
+
             ctx.beginPath();
             for (var i = 0; i < 2 * starPoints; i++) {
               var radius = i % 2 === 0 ? outerRadius : innerRadius;
@@ -405,6 +406,7 @@ var QRCode = /** @class */ (function (_super) {
           ) {
             var centerX = Math.round(col * cellSize) + halfCellSize + offset;
             var centerY = Math.round(row * cellSize) + halfCellSize + offset;
+
             ctx.beginPath();
             ctx.moveTo(centerX, centerY - halfCellSize); // top
             ctx.lineTo(centerX + halfCellSize, centerY); // right
@@ -430,6 +432,7 @@ var QRCode = /** @class */ (function (_super) {
           ) {
             var centerX = Math.round(col * cellSize) + radius + offset;
             var centerY = Math.round(row * cellSize) + radius + offset;
+
             ctx.beginPath();
             for (var i = 0; i < numSides; i++) {
               var x = centerX + radius * Math.cos(i * angleStep);
@@ -461,6 +464,7 @@ var QRCode = /** @class */ (function (_super) {
           ) {
             var centerX = Math.round(col * cellSize) + radius + offset;
             var centerY = Math.round(row * cellSize) + radius + offset;
+
             ctx.beginPath();
             for (var i = 0; i < numSides; i++) {
               var x = centerX + radius * Math.cos(i * angleStep);
@@ -491,6 +495,7 @@ var QRCode = /** @class */ (function (_super) {
           ) {
             var centerX = Math.round(col * cellSize) + radius + offset;
             var centerY = Math.round(row * cellSize) + radius + offset;
+
             ctx.beginPath();
             for (var i = 0; i < numSides; i++) {
               var x = centerX + radius * Math.cos(i * angleStep);
@@ -510,18 +515,18 @@ var QRCode = /** @class */ (function (_super) {
     // DOTS - STYLE
     else if (qrStyle === "dots") {
       ctx.fillStyle = fgColor;
-      var radius_1 = cellSize / 2;
-      for (var row_1 = 0; row_1 < length; row_1++) {
-        for (var col_1 = 0; col_1 < length; col_1++) {
+      const radius = cellSize / 2;
+      for (let row = 0; row < length; row++) {
+        for (let col = 0; col < length; col++) {
           if (
-            qrCode.isDark(row_1, col_1) &&
-            !this.isInPositioninZone(row_1, col_1, positioningZones)
+            qrCode.isDark(row, col) &&
+            !this.isInPositioninZone(row, col, positioningZones)
           ) {
             ctx.beginPath();
             ctx.arc(
-              Math.round(col_1 * cellSize) + radius_1 + offset,
-              Math.round(row_1 * cellSize) + radius_1 + offset,
-              (radius_1 / 100) * 75,
+              Math.round(col * cellSize) + radius + offset,
+              Math.round(row * cellSize) + radius + offset,
+              (radius / 100) * 75,
               0,
               2 * Math.PI,
               false
@@ -614,16 +619,15 @@ var QRCode = /** @class */ (function (_super) {
         }
       }
     }
-    // -------------------------------------------------
     // Draw positioning patterns
-    for (var i_1 = 0; i_1 < 3; i_1++) {
-      var _c = positioningZones[i_1],
-        row_4 = _c.row,
-        col_4 = _c.col;
+    for (var i = 0; i < 3; i++) {
+      var _c = positioningZones[i],
+        row = _c.row,
+        col = _c.col;
       var radii = eyeRadius;
       var color = void 0;
       if (Array.isArray(radii)) {
-        radii = radii[i_1];
+        radii = radii[i];
       }
       if (typeof radii == "number") {
         radii = [radii, radii, radii, radii];
@@ -634,7 +638,7 @@ var QRCode = /** @class */ (function (_super) {
       } else {
         if (Array.isArray(eyeColor)) {
           // if array, we pass the single color
-          color = eyeColor[i_1];
+          color = eyeColor[i];
         } else {
           color = eyeColor;
         }
@@ -643,8 +647,8 @@ var QRCode = /** @class */ (function (_super) {
         ctx,
         cellSize,
         offset,
-        row_4,
-        col_4,
+        row,
+        col,
         color,
         radii
       );
@@ -711,7 +715,10 @@ var QRCode = /** @class */ (function (_super) {
     var _a;
     var qrSize = +this.props.size + 2 * +this.props.quietZone;
     return React.createElement("canvas", {
-      id: (_a = this.props.id) !== null && _a !== void 0 ? _a : "qrcode-stg",
+      id:
+        (_a = this.props.id) !== null && _a !== void 0
+          ? _a
+          : "reactqrcodegeneratorstg",
       height: qrSize,
       width: qrSize,
       style: __assign(
@@ -730,7 +737,7 @@ var QRCode = /** @class */ (function (_super) {
     bgColor: "#FFFFFF",
     fgColor: "#000000",
     logoOpacity: 1,
-    qrStyle: "squares", // Background design
+    qrStyle: "squares",
     eyeRadius: [0, 0, 0],
     logoPaddingStyle: "square",
   };

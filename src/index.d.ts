@@ -28,15 +28,15 @@ export interface IProps {
   eyeRadius?: CornerRadii | [CornerRadii, CornerRadii, CornerRadii];
   eyeColor?: EyeColor | [EyeColor, EyeColor, EyeColor];
   qrStyle?:
-    | "squares"
     | "hearts"
-    | "diamonds"
     | "stars"
+    | "diamonds"
     | "octagons"
     | "pentagons"
     | "triangles"
     | "dots"
-    | "fluid";
+    | "fluid"
+    | "square";
   style?: React.CSSProperties;
   id?: string;
 }

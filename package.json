@@ -1,6 +1,6 @@
 {
-  "name": "qrcodestg",
-  "version": "1.0.0",
+  "name": "reactqrcodegeneratorstg",
+  "version": "3.0.0",
   "description": "React component to generate a QR Code customizable with logo and more properties",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stgsegovia/qr-generator.git"
+    "url": "git+https://github.com/gcoro/reactqrcodegeneratorstg.git"
   },
   "keywords": [
     "react",
@@ -21,12 +21,12 @@
     "opacity",
     "padding"
   ],
-  "author": "Santiago Segovia",
+  "author": "Giulia Corò, Franco Berton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stgsegovia/qr-generator/issues"
+    "url": "https://github.com/gcoro/reactqrcodegeneratorstg/issues"
   },
-  "homepage": "https://github.com/stgsegovia/qr-generator#readme",
+  "homepage": "https://github.com/gcoro/reactqrcodegeneratorstg#readme",
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
